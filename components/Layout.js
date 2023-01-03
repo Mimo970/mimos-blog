@@ -1,9 +1,10 @@
 import React from "react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import Head from "next/head";
 const Layout = ({ children, title }) => {
   return (
-    <>
+    <div className="flex min-h-screen flex-col justify-between">
       <Head>
         <title>{title ? title + " - Mimo's Blog" : "Mimo's Blog"}</title>
         <meta name="description" content="Personal Blog Website" />
@@ -13,8 +14,8 @@ const Layout = ({ children, title }) => {
         <Navbar></Navbar>
       </header>
       <main>{children}</main>
-      <footer>footer</footer>
-    </>
+      <Footer></Footer>
+    </div>
   );
 };
 

@@ -6,12 +6,12 @@ export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
   return (
     <div>
-      <nav className="w-full bg-gray-500 shadow">
+      <nav className="w-full bg-white shadow">
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
               <a href="#">
-                <h2 className="text-2xl text-white font-bold">Dev Blog</h2>
+                <h2 className="text-2xl text-black font-bold">Dev Blog</h2>
               </a>
               <div className="md:hidden">
                 <button
@@ -21,7 +21,7 @@ export default function Navbar() {
                   {navbar ? (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6 text-white"
+                      className="w-6 h-6 text-black"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
@@ -34,7 +34,7 @@ export default function Navbar() {
                   ) : (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6 text-white"
+                      className="w-6 h-6 text-black"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -58,16 +58,16 @@ export default function Navbar() {
               }`}
             >
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                <li className="text-white transition duration-200 hover:text-black ">
+                <li className="text-black transition duration-200 hover:text-black ">
                   <Link href="/home">Home</Link>
                 </li>
-                <li className="text-white transition duration-200 hover:text-black ">
+                <li className="text-black transition duration-200 hover:text-black ">
                   <Link href="/">Write</Link>
                 </li>
-                <li className="text-white transition duration-200 hover:text-black ">
+                <li className="text-black transition duration-200 hover:text-black ">
                   <Link href="/about">About US</Link>
                 </li>
-                <li className="text-white transition duration-200 hover:text-black ">
+                <li className="text-black transition duration-200 hover:text-black ">
                   <Link href="/contact">Contact US</Link>
                 </li>
                 <li className="text-white transition duration-200 hover:text-black ">
