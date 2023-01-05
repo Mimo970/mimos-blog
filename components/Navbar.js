@@ -10,9 +10,9 @@ export default function Navbar() {
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
-              <a href="#">
+              <Link href="/">
                 <h2 className="text-2xl text-black font-bold">Dev Blog</h2>
-              </a>
+              </Link>
               <div className="md:hidden">
                 <button
                   className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
@@ -58,19 +58,19 @@ export default function Navbar() {
               }`}
             >
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                <li className="text-black transition duration-200 hover:text-black ">
+                <li className="text-black transition duration-200 hover:text-gray-600 hover:underline underline-offset-8 ">
                   <Link href="/home">Home</Link>
                 </li>
-                <li className="text-black transition duration-200 hover:text-black ">
+                <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8">
                   <Link href="/">Write</Link>
                 </li>
-                <li className="text-black transition duration-200 hover:text-black ">
+                <li className="text-black transition duration-200 hover:text-gray-500  hover:underline underline-offset-8">
                   <Link href="/about">About US</Link>
                 </li>
-                <li className="text-black transition duration-200 hover:text-black ">
+                <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8">
                   <Link href="/contact">Contact US</Link>
                 </li>
-                <li className="text-white transition duration-200 hover:text-black ">
+                <li className="text-white transition duration-200 hover:text-gray-500 hover:underline underline-offset-8">
                   <Link href="/login">Log in</Link>
                 </li>
               </ul>
