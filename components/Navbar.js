@@ -65,12 +65,12 @@ export default function Navbar() {
                   <Link href="/">Write</Link>
                 </li>
                 <li className="text-black transition duration-200 hover:text-gray-500  hover:underline underline-offset-8">
-                  <Link href="/about">About US</Link>
+                  <Link href="/about">About </Link>
                 </li>
                 <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8">
-                  <Link href="/contact">Contact US</Link>
+                  <Link href="/contact">Contact </Link>
                 </li>
-                <li className="text-white transition duration-200 hover:text-gray-500 hover:underline underline-offset-8">
+                <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 ">
                   <Link href="/login">Log in</Link>
                 </li>
               </ul>

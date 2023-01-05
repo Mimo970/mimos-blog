@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Sidebar from "./Sidebar";
 import Head from "next/head";
 const Layout = ({ children, title }) => {
   return (
@@ -13,7 +14,10 @@ const Layout = ({ children, title }) => {
       <header>
         <Navbar></Navbar>
       </header>
-      <main>{children}</main>
+      <div className="flex px-12 py-10">
+        <main>{children}</main>
+        <Sidebar></Sidebar>
+      </div>
       <Footer></Footer>
     </div>
   );

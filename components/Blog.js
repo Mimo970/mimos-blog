@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 const Blog = ({ post }) => {
@@ -16,9 +17,13 @@ const Blog = ({ post }) => {
         <div className="text-gray-500"> {post.category}</div>
         <div>{post.timeSincePosted}</div>
       </div>
+      <Link href={`/blog/${post.id}`}>
+        <h1 className="text-xl font-bold hover:text-green-800 hover:underline underline-offset-8">
+          {post.title}
+        </h1>
+      </Link>
 
-      <h1 className="text-xl font-bold">{post.title}</h1>
-      <section className="">{post.body}</section>
+      <section className="">{post.bodySummary}</section>
       <p> </p>
     </div>
   );

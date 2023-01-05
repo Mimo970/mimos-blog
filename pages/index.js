@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Layout title="Home">
-        <div className="py-5 px-5 grid grid-cols-4 gap-4 md:grid-cols-3 lg:grid-cols-4 ">
+        <div className="py-12 px-12 grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 ">
           {data.posts.map((post) => (
             <Blog post={post} key={post.id}></Blog>
           ))}
