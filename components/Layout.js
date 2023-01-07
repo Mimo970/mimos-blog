@@ -14,9 +14,8 @@ const Layout = ({ children, title }) => {
       <header>
         <Navbar></Navbar>
       </header>
-      <div className="flex px-12 py-10">
+      <div className=" px-12 py-5">
         <main>{children}</main>
-        <Sidebar></Sidebar>
       </div>
       <Footer></Footer>
     </div>

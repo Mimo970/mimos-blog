@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Sidebar() {
   return (
-    <div className="h-fit flex flex-col items-center bg-gray-100 rounded-3xl px-3">
+    <div className="h-fit flex flex-col items-center bg-gray-100 rounded-3xl px-3 ">
       <div className=" flex flex-col items-center">
         <span className="mx-5 my-2 self-start text-lg font-bold">ABOUT ME</span>
         <img

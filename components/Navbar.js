@@ -59,10 +59,10 @@ export default function Navbar() {
             >
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
                 <li className="text-black transition duration-200 hover:text-gray-600 hover:underline underline-offset-8 ">
-                  <Link href="/home">Home</Link>
+                  <Link href="/">Home</Link>
                 </li>
                 <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8">
-                  <Link href="/">Write</Link>
+                  <Link href="/write">Write</Link>
                 </li>
                 <li className="text-black transition duration-200 hover:text-gray-500  hover:underline underline-offset-8">
                   <Link href="/about">About </Link>
@@ -70,8 +70,11 @@ export default function Navbar() {
                 <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8">
                   <Link href="/contact">Contact </Link>
                 </li>
-                <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 ">
+                {/* <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 ">
                   <Link href="/login">Log in</Link>
+                </li> */}
+                <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 ">
+                  <Link href="/register">Register</Link>
                 </li>
               </ul>
             </div>

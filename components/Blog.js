@@ -13,17 +13,17 @@ const Blog = ({ post }) => {
         layout="responsive"
         className="max-h-[240px] rounded-md"
       ></img>
-      <div className="flex justify-between">
-        <div className="text-gray-500"> {post.category}</div>
-        <div>{post.timeSincePosted}</div>
-      </div>
-      <Link href={`/blog/${post.id}`}>
-        <h1 className="text-xl font-bold hover:text-green-800 hover:underline underline-offset-8">
-          {post.title}
-        </h1>
-      </Link>
 
-      <section className="">{post.bodySummary}</section>
+      <div className="text-gray-500"> {post.category}</div>
+      <div className="flex justify-start ">
+        <Link href={`/blog/${post.id}`}>
+          <h1 className="text-xl font-bold hover:text-green-800 hover:underline underline-offset-8">
+            {post.title}
+          </h1>
+        </Link>
+        <div className="text-lg">-{post.timeSincePosted}</div>
+      </div>
+      <section>{post.bodySummary}</section>
       <p> </p>
     </div>
   );

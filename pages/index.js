@@ -7,18 +7,22 @@ import { useEffect, useState } from "react";
 import axios, { all } from "axios";
 import Blog from "../components/Blog";
 import data from "../utils/data";
+import Sidebar from "../components/Sidebar";
 export default function Home() {
   return (
-    <>
+    <div>
       <Layout title="Home">
-        <div className="py-12 px-12 grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 ">
-          {data.posts.map((post) => (
-            <Blog post={post} key={post.id}></Blog>
-          ))}
+        <h1 className="text-4xl font-bold ">React Blog</h1>
+        <div className="flex">
+          <div className="py-12 px-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 ">
+            {data.posts.map((post) => (
+              <Blog post={post} key={post.id}></Blog>
+            ))}
+          </div>
+          <Sidebar></Sidebar>
         </div>
       </Layout>
-      <div></div>
-    </>
+    </div>
   );
 }
 // const [allPosts, setAllPosts] = useState(data);
