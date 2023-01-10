@@ -3,7 +3,8 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
 import Head from "next/head";
-const Layout = ({ children, title }) => {
+const Layout = ({ children, title, user }) => {
+  // console.log(user);
   return (
     <div className="flex min-h-screen flex-col justify-between">
       <Head>
@@ -12,7 +13,7 @@ const Layout = ({ children, title }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
-        <Navbar></Navbar>
+        <Navbar user={user}></Navbar>
       </header>
       <div className=" px-12 py-5">
         <main>{children}</main>

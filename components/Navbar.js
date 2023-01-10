@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
 
-export default function Navbar() {
+export default function Navbar({ user }) {
   const [navbar, setNavbar] = useState(false);
   return (
     <div>
@@ -73,9 +73,16 @@ export default function Navbar() {
                 {/* <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 ">
                   <Link href="/login">Log in</Link>
                 </li> */}
-                <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 ">
-                  <Link href="/register">Register</Link>
-                </li>
+                {user && (
+                  <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 ">
+                    <Link href="/api/auth/logout">Log out</Link>
+                  </li>
+                )}
+                {!user && (
+                  <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 ">
+                    <Link href="/api/auth/login">Sign in</Link>
+                  </li>
+                )}
               </ul>
             </div>
           </div>

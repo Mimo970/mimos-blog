@@ -8,11 +8,16 @@ import axios, { all } from "axios";
 import Blog from "../components/Blog";
 import data from "../utils/data";
 import Sidebar from "../components/Sidebar";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import { nanoid } from "nanoid";
 export default function Home() {
+  const { user, error, isLoading } = useUser();
+  if (error) return <div>{error.message}</div>;
+
   return (
     <div>
-      <Layout title="Home">
-        <h1 className="text-4xl font-bold ">React Blog</h1>
+      <Layout title="Home" user={user}>
+        <h1 className="text-4xl font-bold flex justify-center ">React Blog</h1>
         <div className="flex">
           <div className="py-12 px-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 ">
             {data.posts.map((post) => (
