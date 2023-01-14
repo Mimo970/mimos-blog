@@ -3,11 +3,13 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 const Blog = ({ post }) => {
+  const { id, image, body, category, title, date, bodySummary } = post;
+
   return (
-    <div>
+    <div key={id}>
       <img
-        src={post.image}
-        alt={post.body}
+        src={image}
+        alt={body}
         // width={150}
         // height={100}
         layout="responsive"
@@ -15,19 +17,24 @@ const Blog = ({ post }) => {
       ></img>
 
       <div className="text-gray-500 flex">
-        {post.category.map((cat) => (
-          <div className="pr-1">{cat}</div>
-        ))}
+        {/* {post.category.map((cat) => (
+          <div key={cat} className="pr-1">
+            {cat}
+          </div>
+        ))} */}
+        <div key={category} className="pr-1">
+          {category}
+        </div>
       </div>
       <div className="flex justify-start ">
-        <Link href={`/blog/${post.id}`}>
+        <Link href={`/blog/${id}`}>
           <h1 className="text-xl font-bold hover:text-green-800 hover:underline underline-offset-8">
-            {post.title}
+            {title}
           </h1>
         </Link>
-        <div className="text-lg"> -{post.date}</div>
+        <div className="text-lg"> -{date}</div>
       </div>
-      <section>{post.bodySummary}</section>
+      <section>{bodySummary}</section>
       <p> </p>
     </div>
   );

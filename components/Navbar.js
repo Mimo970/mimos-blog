@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function Navbar({ user }) {
   const [navbar, setNavbar] = useState(false);
+  // console.log(user);
   return (
     <div>
       <nav className="w-full bg-white shadow">
