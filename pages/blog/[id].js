@@ -14,11 +14,11 @@ const BlogPage = (props) => {
   // if (!postedBlog) {
   //   return <div>Product Not Found</div>;
   // }
-  console.log(blogData);
+  console.log(props.blogData);
   return (
     <Layout>
-      <div>hi</div>
-      {/* <BlogDetail
+      {/* <div>hi</div> */}
+      <BlogDetail
         id={props.blogData.id}
         title={props.blogData.title}
         author={props.blogData.author}
@@ -27,7 +27,7 @@ const BlogPage = (props) => {
         category={props.blogData.category}
         date={props.blogData.date}
         bodySummary={props.blogData.bodySummary}
-      ></BlogDetail> */}
+      ></BlogDetail>
     </Layout>
   );
 };
@@ -49,7 +49,7 @@ export async function getStaticPaths() {
   Client.close();
 
   return {
-    fallback: false,
+    fallback: "blocking",
     paths: blogPosts.map((blog) => ({
       params: { id: blog._id.toString() },
     })),
@@ -61,8 +61,8 @@ export async function getStaticProps(context) {
 
   const blogId = context.params.id;
 
-  const client = await MongoClient.connect(
-    "mongodb+srv://mimo1500:35309105Adr@cluster0.gryelc8.mongodb.net/meetups?retryWrites=true&w=majority"
+  const Client = await MongoClient.connect(
+    "mongodb+srv://mimo1500:35309105Adr@cluster0.gryelc8.mongodb.net/NextJs-Blog?retryWrites=true&w=majority"
   );
   const database = await Client.db();
 
@@ -74,7 +74,7 @@ export async function getStaticProps(context) {
     _id: ObjectId(blogId),
   });
   console.log(selectedBlog);
-  client.close();
+  Client.close();
 
   return {
     props: {
@@ -89,5 +89,6 @@ export async function getStaticProps(context) {
         bodySummary: selectedBlog.bodySummary,
       },
     },
+    revalidate: 1,
   };
 }
