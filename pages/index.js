@@ -12,20 +12,25 @@ import { useUser } from "@auth0/nextjs-auth0/client";
 import { nanoid } from "nanoid";
 // import { clientPromise } from "../utils/mongodb";
 import { MongoClient } from "mongodb";
+import ThemeToggler from "../ThemeToggler";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 
 export default function Home({ databaseData }) {
   const { user, error, isLoading } = useUser();
   if (error) return <div>{error.message}</div>;
-  console.log(databaseData);
+  // console.log(databaseData);
   // console.log(user);
   return (
     <div>
       <Layout title="Home" user={user}>
-        <h1 className="text-4xl font-bold flex justify-center ">React Blog</h1>
-        <div className="flex">
-          <div className="py-12 px-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 ">
+        <h1 className="text-4xl font-bold flex justify-center dark:text-zinc-400">
+          React Blog
+        </h1>
+        {/* <ThemeToggler /> */}
+        <div className="flex mx-2 my-2">
+          <div className=" rounded-xl py-12 px-12 mx-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 dark:bg-zinc-800 dark:border-gray-700">
             {databaseData.map((post) => (
-              <Blog post={post}></Blog>
+              <Blog post={post} key={post}></Blog>
             ))}
           </div>
           <Sidebar></Sidebar>

@@ -11,7 +11,7 @@ const BlogProvider = ({ children }) => {
     // title:'',
     // category:'',
     // body:''
-    id: null,
+    // id: null,
     author: " ",
     category: [],
     title: " ",
@@ -19,6 +19,7 @@ const BlogProvider = ({ children }) => {
     body: " ",
     bodySummary: " ",
     timeSincePosted: " ",
+    date: "",
   });
 
   return (

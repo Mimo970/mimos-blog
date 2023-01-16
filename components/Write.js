@@ -23,8 +23,8 @@ const WritePage = (props) => {
       // console.log(prevBlogPost);
       return {
         ...prevBlogPost,
-        id: nanoid(),
-        date: (prevBlogPost.id = currentDate),
+        // id: nanoid(),
+        date: (prevBlogPost.date = currentDate),
         bodySummary:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quos magni suscipit iure ratione provident veritatis doloribus fugit repellendus dicta cupiditate dolorem, qui rerum nemo atque porro omnis! Suscipit, magni.",
         author: user.name,

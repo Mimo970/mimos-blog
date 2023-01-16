@@ -3,10 +3,10 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 const Blog = ({ post }) => {
-  const { id, image, body, category, title, date, bodySummary } = post;
-
+  const { _id, image, body, category, title, date, bodySummary } = post;
+  // console.log(post);
   return (
-    <div key={id}>
+    <div key={_id}>
       <img
         src={image}
         alt={body}
@@ -27,14 +27,14 @@ const Blog = ({ post }) => {
         </div>
       </div>
       <div className="flex justify-start ">
-        <Link href={`/blog/${id}`}>
-          <h1 className="text-xl font-bold hover:text-green-800 hover:underline underline-offset-8">
+        <Link href={`/blog/${_id}`}>
+          <h1 className="dark:text-zinc-300 text-xl font-bold hover:text-green-800 hover:underline underline-offset-8">
             {title}
           </h1>
         </Link>
-        <div className="text-lg"> -{date}</div>
+        <div className="text-lg dark:text-zinc-300"> -{date}</div>
       </div>
-      <section>{bodySummary}</section>
+      <section className="dark:text-zinc-200">{bodySummary}</section>
       <p> </p>
     </div>
   );

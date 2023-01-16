@@ -1,18 +1,21 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
-
+import ThemeToggler from "../ThemeToggler";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 export default function Navbar({ user }) {
   const [navbar, setNavbar] = useState(false);
   // console.log(user);
   return (
     <div>
-      <nav className="w-full bg-white shadow">
+      <nav className="w-full bg-white shadow dark:bg-zinc-800 dark:border-gray-700 ">
         <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
               <Link href="/">
-                <h2 className="text-2xl text-black font-bold">Dev Blog</h2>
+                <h2 className="text-2xl text-black font-bold dark:text-zinc-400">
+                  Dev Blog
+                </h2>
               </Link>
               <div className="md:hidden">
                 <button
@@ -59,31 +62,32 @@ export default function Navbar({ user }) {
               }`}
             >
               <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                <li className="text-black transition duration-200 hover:text-gray-600 hover:underline underline-offset-8 ">
+                <li className="text-black transition duration-200 hover:text-gray-600 hover:underline underline-offset-8 dark:text-zinc-400">
                   <Link href="/">Home</Link>
                 </li>
-                <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8">
+                <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 dark:text-zinc-400">
                   <Link href="/write">Write</Link>
                 </li>
-                <li className="text-black transition duration-200 hover:text-gray-500  hover:underline underline-offset-8">
+                <li className="text-black transition duration-200 hover:text-gray-500  hover:underline underline-offset-8 dark:text-zinc-400">
                   <Link href="/about">About </Link>
                 </li>
-                <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8">
+                <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 dark:text-zinc-400">
                   <Link href="/contact">Contact </Link>
                 </li>
                 {/* <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 ">
                   <Link href="/login">Log in</Link>
                 </li> */}
                 {user && (
-                  <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 ">
+                  <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 dark:text-zinc-400">
                     <Link href="/api/auth/logout">Log out</Link>
                   </li>
                 )}
                 {!user && (
-                  <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 ">
+                  <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 dark:text-zinc-400">
                     <Link href="/api/auth/login">Sign in</Link>
                   </li>
                 )}
+                <ThemeToggler />
               </ul>
             </div>
           </div>
