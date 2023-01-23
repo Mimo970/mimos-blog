@@ -28,6 +28,7 @@ const WritePage = (props) => {
         bodySummary:
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quos magni suscipit iure ratione provident veritatis doloribus fugit repellendus dicta cupiditate dolorem, qui rerum nemo atque porro omnis! Suscipit, magni.",
         author: user.name,
+        authorId: user.email,
         [name]: value,
       };
     });
@@ -70,7 +71,7 @@ const WritePage = (props) => {
                 <div className="py-2 px-4 sm:px-0">
                   <label htmlFor="title">Blog Title: </label>
                   <input
-                    className="bg-gray-200 w-2/4 rounded-lg"
+                    className="bg-gray-200 w-2/4 rounded-lg dark:text-black"
                     placeholder=" Write your title  here..."
                     type="text"
                     name="title"
@@ -85,7 +86,7 @@ const WritePage = (props) => {
                   name="category"
                   type="text"
                   placeholder=" Write your category here..."
-                  className="bg-gray-200 w-2/4 rounded-lg"
+                  className="bg-gray-200 w-2/4 rounded-lg dark:text-black"
                   onChange={handleChange}
                 />
               </div>
@@ -93,7 +94,7 @@ const WritePage = (props) => {
               <div className="mt-5 md:mt-0 md:col-span-2">
                 <label htmlFor="body">Blog Post:</label>
                 <textarea
-                  className="bg-gray-200 w-full rounded-lg "
+                  className="bg-gray-200 w-full rounded-lg dark:text-black"
                   name="body"
                   id="body"
                   cols="30"
@@ -117,7 +118,7 @@ const WritePage = (props) => {
                   type="text"
                   name="image"
                   placeholder=" Enter image URL here..."
-                  className="bg-gray-200 w-full rounded-lg "
+                  className="bg-gray-200 w-full rounded-lg dark:text-black"
                 />
               </div>
               <div className="flex justify-end">

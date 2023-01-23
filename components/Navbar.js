@@ -1,11 +1,25 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useState } from "react";
-import ThemeToggler from "../ThemeToggler";
+import ThemeToggler from "../components/ThemeToggler";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
+// const { hash } = require("bcrypt-deterministic");
+// import hash from "bcrypt-deterministic";
+
 export default function Navbar({ user }) {
   const [navbar, setNavbar] = useState(false);
   // console.log(user);
+  const password = "BCryptIsCool";
+
+  // Assume top-level await or inside an async function
+
+  // async function test() {
+  //   const hashedWithFixedSalt = await hash(data, { salt: "salty", rounds: 10 });
+  //   const hashedWithDynamicSalt = await hash(data, { rounds: 10 });
+  //   await compare(password, hashedWithFixedSalt); // true
+  //   await compare(password, hashedWithDynamicSalt); // true
+  // }
+
   return (
     <div>
       <nav className="w-full bg-white shadow dark:bg-zinc-800 dark:border-gray-700 ">
@@ -78,9 +92,17 @@ export default function Navbar({ user }) {
                   <Link href="/login">Log in</Link>
                 </li> */}
                 {user && (
-                  <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 dark:text-zinc-400">
-                    <Link href="/api/auth/logout">Log out</Link>
-                  </li>
+                  <>
+                    <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 dark:text-zinc-400">
+                      <Link href="/api/auth/logout">Log out</Link>
+                    </li>
+                    <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 dark:text-zinc-400">
+                      <Link href={`/user/${user.name}`}>
+                        {/* <img src={user.image} alt="" /> */}
+                        {user.name}
+                      </Link>
+                    </li>
+                  </>
                 )}
                 {!user && (
                   <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 dark:text-zinc-400">

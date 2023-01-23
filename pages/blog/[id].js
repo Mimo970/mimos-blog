@@ -50,6 +50,8 @@ export async function getStaticPaths() {
 
   return {
     fallback: "blocking",
+
+    // fallback: false,
     paths: blogPosts.map((blog) => ({
       params: { id: blog._id.toString() },
     })),
@@ -73,7 +75,7 @@ export async function getStaticProps(context) {
   const selectedBlog = await blogPostsCollection.findOne({
     _id: ObjectId(blogId),
   });
-  console.log(selectedBlog);
+  // console.log(selectedBlog);
   Client.close();
 
   return {
