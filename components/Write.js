@@ -56,17 +56,10 @@ const WritePage = (props) => {
   return (
     <div>
       <Layout title="Write" user={user}>
-        <form
-          // onSubmit={handleSubmit(handleBlogSubmit)}
-          onSubmit={handleBlogSubmit}
-
-          // action="/api/post"
-          // method="post"
-          // encType="multipart/form-data"
-        >
+        <form onSubmit={handleBlogSubmit}>
           <h1 className="text-4xl py-4 px-10">Create your own blog post</h1>
           <div>
-            <div className="md:grid md:grid-cols-1 md:gap-4 px-12 ">
+            {/* <div className="md:grid md:grid-cols-1 md:gap-4 px-12 ">
               <div className="md:col-span-1">
                 <div className="py-2 px-4 sm:px-0">
                   <label htmlFor="title">Blog Title: </label>
@@ -77,7 +70,6 @@ const WritePage = (props) => {
                     name="title"
                     id="title"
                     onChange={handleChange}
-                    // {...register('title')}
                   />
                 </div>
                 <label htmlFor="category">Blog Category: </label>
@@ -104,14 +96,6 @@ const WritePage = (props) => {
                 ></textarea>
               </div>
               <div className="mt-5  md:mt-0 md:col-span-2">
-                {/* <label htmlFor="file">Upload Image</label>
-                <input
-                  onChange={handleChange}
-                  type="file"
-                  name="image"
-                  id="image"
-                /> */}
-                {/* <ImageUpload id="file" /> */}
                 <label htmlFor="image">Upload Image:</label>
                 <input
                   onChange={handleChange}
@@ -128,6 +112,58 @@ const WritePage = (props) => {
                 >
                   Post Blog
                 </button>
+              </div>
+            </div> */}
+            <div class="relative min-h-screen">
+              <div class="container mx-auto flex flex-col items-center justify-center">
+                <div class="w-full">
+                  <input
+                    type="text"
+                    class="dark:bg-zinc-800 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
+                    placeholder=" Write your title  here..."
+                    name="title"
+                    id="title"
+                    onChange={handleChange}
+                  />
+                </div>
+                <div class="w-full mt-4">
+                  <input
+                    className="dark:bg-zinc-800 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
+                    id="category"
+                    name="category"
+                    type="text"
+                    placeholder=" Write your category here..."
+                    onChange={handleChange}
+                  />
+                </div>
+                <div class="w-full mt-4">
+                  <textarea
+                    class="h-64 dark:bg-zinc-800 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
+                    name="body"
+                    id="body"
+                    // cols="30"
+                    // rows="10"
+                    placeholder=" Write your blog post here..."
+                    onChange={handleChange}
+                  ></textarea>
+                </div>
+                <div class="w-full mt-4">
+                  <input
+                    onChange={handleChange}
+                    type="text"
+                    name="image"
+                    placeholder=" Enter image URL here..."
+                    className="dark:bg-zinc-800 focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal"
+                  />
+                </div>
+                <div class="w-full mt-4">
+                  <button
+                    type="submit"
+                    className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                  >
+                    Post Blog
+                  </button>
+                </div>
               </div>
             </div>
           </div>

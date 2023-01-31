@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/Layout";
 import { useUser } from "@auth0/nextjs-auth0/client";
+import Image from "next/image";
+
 import Link from "next/link";
-import axios from "axios";
+// import axios from "axios";
 import Router from "next/router";
-import getConfig from "next/config";
-import { withPageAuthRequired } from "@auth0/nextjs-auth0";
+// import getConfig from "next/config";
+// import { withPageAuthRequired } from "@auth0/nextjs-auth0";
 // import auth0 from "auth0";
 
 // import { MongoClient } from "mongodb";
@@ -28,20 +30,17 @@ const UserPage = () => {
       };
     });
   }
-  const submitHandler = (e) => {
-    e.preventDefault();
-    console.log("lolsdkfj");
-  };
 
-  useEffect(() => {
-    if (!user) {
-      Router.push("/api/auth/login");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (!user) {
+  //     Router.push("/api/auth/login");
+  //   }
+  // }, []);
 
-  console.log(userProfile);
+  // console.log(userProfile);
 
   // var options = {
+  console.log(user.picture);
   //   method: "POST",
   //   url: "https://dev-pdlrh2yvym44io0q.us.auth0.com/dbconnections/change_password",
   //   headers: { "content-type": "application/json" },
@@ -63,8 +62,14 @@ const UserPage = () => {
   // };
   return (
     <Layout user={user}>
-      <form onSubmit={submitHandler} className="mx-auto max-w-screen-md">
-        <img src={user.picture} alt={user.name} className="rounded-full" />
+      <form className="mx-auto max-w-screen-md">
+        <img
+          src={user.picture}
+          alt={user.name}
+          width={100}
+          height={100}
+          className="rounded-full"
+        />
         <h1 className="mb-4 text-xl">Blog Profile</h1>
 
         <div className="mb-4">
@@ -89,26 +94,13 @@ const UserPage = () => {
             onChange={handleChange}
           />
         </div>
-
-        {/* <div className="mb-4">
-          <button>Change Password?</button>
-        </div> */}
-
-        <div className="mb-4">
-          {/* <button
-            // type="submit"
-            className="bg-zinc-500 hover:bg-zinc-400 text-white font-bold py-2 px-4 border-b-4 border-zinc-700 hover:border-zinc-500 rounded"
-          >
-            Update Profile
-          </button> */}
-        </div>
       </form>
     </Layout>
   );
 };
 
 export default UserPage;
-export const getServerSideProps = withPageAuthRequired();
+// export const getServerSideProps = withPageAuthRequired();
 
 // export async function getStaticPaths() {
 //   const Client = await MongoClient.connect(
@@ -118,7 +110,12 @@ export const getServerSideProps = withPageAuthRequired();
 
 //   const blogPostsCollection = database.collection("blog-posts");
 
-//   const blogPostsAuthor = await blogPostsCollection
+//   // const blogPosts = await blogPostsCollection
+//   //   .find({ authorId: "12345" }, { authorId: 1 })
+//   //   .toArray();
+
+//   // const findBlogPosts = async (authorId) => {
+//   const blogPosts = await blogPostsCollection
 //     .find({}, { authorId: 1 })
 //     .toArray();
 
@@ -128,16 +125,22 @@ export const getServerSideProps = withPageAuthRequired();
 //     fallback: "blocking",
 
 //     // fallback: false,
-//     paths: blogPostsAuthor.map((blog) => ({
-//       params: { encEmail: blog.authorId },
+//     paths: blogPosts.map((blog) => ({
+//       params: { authorId: blog.authorId },
 //     })),
 //   };
 // }
 
 // export async function getStaticProps(context) {
 //   //fetch daa for a single meetup
+//   const findBlogPosts = async (authorId) => {
+//     const blogPosts = await blogPostsCollection
+//       .find({ authorId: authorId }, { authorId: 1 })
+//       .toArray();
+//     return blogPosts;
+//   };
 
-//   const encEmail = context.params.id;
+//   const authorId = context.params.authorId;
 
 //   const Client = await MongoClient.connect(
 //     "mongodb+srv://mimo1500:35309105Adr@cluster0.gryelc8.mongodb.net/NextJs-Blog?retryWrites=true&w=majority"
@@ -148,52 +151,16 @@ export const getServerSideProps = withPageAuthRequired();
 
 //   // const blogPosts = await blogPostsCollection.find({}, { _id: 1 }).toArray();
 
-//   const selectedBlog = await blogPostsCollection.findOne({
-//     authorId: encEmail,
-//   });
-//   console.log(encEmail);
-//   Client.close();
-
-//   return {
-//     props: {
-//       blogData: {
-//         // id: selectedBlog._id.toString(),
-//         authorId: selectedBlog.authorId,
-//         // image: selectedBlog.image,
-//         // body: selectedBlog.body,
-//         // category: selectedBlog.category,
-//         // title: selectedBlog.title,
-//         // date: selectedBlog.date,
-//         // bodySummary: selectedBlog.bodySummary,
-//       },
-//     },
-//     revalidate: 1,
-//   };
-// }
-
-// export async function getStaticProps(context) {
-//   // const { user } = useUser();
-//   let userProfile = "lol";
-//   const { authorId } = userProfile;
-
-//   const Client = await MongoClient.connect(
-//     "mongodb+srv://mimo1500:35309105Adr@cluster0.gryelc8.mongodb.net/NextJs-Blog?retryWrites=true&w=majority"
-//   );
-//   const database = await Client.db();
-
-//   const blogPostsCollection = database.collection("blog-posts");
-
-//   const usersBlogPosts = await blogPostsCollection
+//   const selectedBlog = await blogPostsCollection
 //     .find({}, { authorId: authorId })
 //     .toArray();
-
-//   console.log(usersBlogPosts);
+//   const blogPosts = await findBlogPosts(context.params.authorId);
+//   const result = JSON.parse(JSON.stringify(blogPosts));
+//   console.log(result);
 //   Client.close();
 
 //   return {
-//     props: {
-//       userBlogs: JSON.parse(JSON.stringify(usersBlogPosts)),
-//     },
+//     props: { result },
 //     revalidate: 1,
 //   };
 // }

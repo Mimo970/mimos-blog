@@ -97,7 +97,7 @@ export default function Navbar({ user }) {
                       <Link href="/api/auth/logout">Log out</Link>
                     </li>
                     <li className="text-black transition duration-200 hover:text-gray-500 hover:underline underline-offset-8 dark:text-zinc-400">
-                      <Link href={`/user/${user.name}`}>
+                      <Link href={`/user/${user.email}`}>
                         {/* <img src={user.image} alt="" /> */}
                         {user.name}
                       </Link>

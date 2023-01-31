@@ -21,19 +21,21 @@ export default function Home({ databaseData }) {
   // Cookies.set("hola", "me llamo");
 
   return (
-    <div>
+    <div className="">
       <Layout title="Home" user={user}>
-        <h1 className="text-4xl font-bold flex justify-center dark:text-zinc-400">
+        <h1 className="py-4 text-4xl font-bold flex justify-center dark:text-zinc-400">
           React Blog
         </h1>
-        {/* <ThemeToggler /> */}
-        <div className="flex mx-2 my-2">
-          <div className=" rounded-xl py-12 px-12 mx-12 grid grid-cols-1 gap-4 md:grid-cols-1 lg:grid-cols-1 dark:bg-zinc-800 dark:border-gray-700">
+
+        <div className="py-4 flex min-[240px]:flex-col max-[700px]:items-center md:flex-row lg:flex-row lg:justify-center mx-2 my-2 ">
+          <div className="py-6 px-6 mx-12  rounded-xl   dark:bg-zinc-800 dark:border-gray-700">
             {databaseData.map((post, index) => (
               <Blog post={post} key={index}></Blog>
             ))}
           </div>
-          <Sidebar></Sidebar>
+          <div className="">
+            <Sidebar></Sidebar>
+          </div>
         </div>
       </Layout>
     </div>

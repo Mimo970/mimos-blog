@@ -15,7 +15,7 @@ const Layout = ({ children, title, user }) => {
       <header>
         <Navbar user={user}></Navbar>
       </header>
-      <div className=" px-12 py-5">
+      <div className=" ">
         <main>{children}</main>
       </div>
       <Footer></Footer>

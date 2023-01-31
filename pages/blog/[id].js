@@ -17,7 +17,6 @@ const BlogPage = (props) => {
   console.log(props.blogData);
   return (
     <Layout>
-      {/* <div>hi</div> */}
       <BlogDetail
         id={props.blogData.id}
         title={props.blogData.title}
@@ -27,6 +26,7 @@ const BlogPage = (props) => {
         category={props.blogData.category}
         date={props.blogData.date}
         bodySummary={props.blogData.bodySummary}
+        authorId={props.blogData.authorId}
       ></BlogDetail>
     </Layout>
   );
@@ -89,6 +89,7 @@ export async function getStaticProps(context) {
         title: selectedBlog.title,
         date: selectedBlog.date,
         bodySummary: selectedBlog.bodySummary,
+        authorId: selectedBlog.authorId,
       },
     },
     revalidate: 1,

@@ -26,6 +26,7 @@
     "dns": "^0.2.2",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.1",
+    "file-loader": "^6.2.0",
     "fs": "^0.0.1-security",
     "html5-file-selector": "^2.1.0",
     "js-cookie": "^3.0.1",
@@ -44,6 +45,7 @@
     "react-social-icons": "^5.15.0",
     "superagent-proxy": "^3.0.0",
     "tls": "^0.0.1",
+    "url-loader": "^4.1.1",
     "v8": "^0.1.0"
   },
   "devDependencies": {
